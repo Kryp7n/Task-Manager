@@ -1,0 +1,8 @@
+venv
+.vscode
+app/init.pyc
+pycache
+migrations
+app/pycache
+appdb
+*.pyc

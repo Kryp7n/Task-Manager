@@ -1,0 +1,33 @@
+version: "3"
+services:
+
+  project:
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - myvol:/code/data
+    restart: always
+    ports:
+      - "5000:5000"
+    depends_on:
+      - redis
+
+  celery:
+    build: 
+      context: ./
+      dockerfile: CeleryDockerfile
+    volumes:
+      - myvol:/cel/data
+    restart: always
+    user: root
+    command: celery -A app.celery worker --loglevel=info
+    depends_on:
+      - redis
+
+  redis:
+    image: redis
+    restart: always
+    command: redis-server
+volumes:
+  myvol:    
