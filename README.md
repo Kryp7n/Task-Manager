@@ -52,8 +52,7 @@ To run multiple docker images
 
 ```docker-compose up```
 
-    Local host:
-[http://localhost:5000/](http://localhost:5000/)
+Available at [http://localhost:5000/](http://localhost:5000/)
 
 To stop running docker images
 
